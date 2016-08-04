@@ -5,4 +5,4 @@ from smb.core.models import Municipality
 
 def home(request):
 
-	return render(request, 'core/home.html')
+	return render(request, 'core/municipality.html')
