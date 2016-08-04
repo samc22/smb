@@ -41,6 +41,7 @@ class Municipality(models.Model):
 	lat = models.CharField(max_length=10)
 	log = models.CharField(max_length=10)
 	avatar = models.ImageField(upload_to='/avatar')
+	createdDate = models.DateTimeField()
 	#user = models.ForeignKey(User)
 		
 	
