@@ -18,6 +18,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^municipality/$', include('smb.core.urls', namespace='municipality')),
+    url(r'^municipality/', include('smb.core.urls', namespace='municipality')),
 
 ]
