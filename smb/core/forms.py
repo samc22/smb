@@ -45,7 +45,7 @@ class addMunicipalityForm(forms.ModelForm):
 	states = forms.CharField(max_length=30, widget=forms.Select(choices=STATES))
 	lat = forms.CharField(label='Latidude', max_length=10)
 	log = forms.CharField(label='Longitude', max_length=10)
-	avatar = forms.ImageField(label='Avatar')
+	avatar = forms.ImageField(label='Avatar', required=False)
 
 	class Meta:
 		model = Municipality
@@ -57,6 +57,10 @@ class addMunicipalityForm(forms.ModelForm):
 		'log', 
 		'avatar'
 		]
+class editMunicipalityForm(forms.ModelForm):
 
+	class Meta:
+		model = Municipality
+		fields = ['name', 'description', 'states', 'lat', 'log', 'avatar']
 	
 	
