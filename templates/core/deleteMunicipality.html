@@ -1,0 +1,13 @@
+
+{% extends "base.html" %}
+{% block title %}Editando Municipios{% endblock title %}
+
+{% block content %}
+<div class="container">
+<form method="post">{% csrf_token %}
+    Tem certeza que quer deletar "{{ object }}" ?
+    <input type="submit" value="Yes" />
+</form>
+</div>
+
+{% endblock content%}

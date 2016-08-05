@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}List Municipalities{% endblock title %}
+
+{% block content %}
+{% for municipality in municipalities %}
+<div class="container">
+<ul class="collection"> 
+    <li class="collection-item avatar">
+      <img src="https://recifeguide.files.wordpress.com/2008/12/recife-antigo-aerial-view.jpg" alt="" class="circle">
+     <a href="../detail/{{municipality.id}}"> <span class="title">{{ municipality.name }}</span></a>
+      <p>{{ municipality.description }}
+      </p>
+      <a href="../delete/{{municipality.id}}" class="secondary-content"><i class="material-icons">delete</i></a>
+    </li>
+   
+  </ul>
+</div>
+{% endfor %}
+{% endblock content %}
