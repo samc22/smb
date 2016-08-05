@@ -1,16 +1,32 @@
 
 {% extends "base.html" %}
-{% block title %}Editando Municipios{% endblock title %}
+{% block title %}Detail Municipality{% endblock title %}
 
 {% block content %}
+
 <div class="container">
-{{municipality.name}}
-{{municipality.description}}
-{{municipality.states}}
-{{municipality.lat}}
-{{municipality.log}}
-{{municipality.avatar}}
-{{municipality.createdDate}}
+<h1>Detail Municipality</h1>
+
+
+
+<div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+    {% if municipality.avatar %}
+      <img class="activator" src="{{municipality.avatar.url}}">
+    {% endif %}
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">{{municipality.name}}<i class="material-icons right">more_vert</i></span>
+     <!-- <p><a href="../edit/{{municipality.id}}">Edit</a></p>-->
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">{{municipality.name}}<i class="material-icons right">close</i></span>
+      <p>{{municipality.description}}</p>
+      <p>{{municipality.states}}</p>
+      <p>{{municipality.lat}}</p>
+      <p>{{municipality.log}}</p>
+   </div>
+  </div>
 </div>
 
 {% endblock content%}

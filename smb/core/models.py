@@ -41,7 +41,7 @@ class Municipality(models.Model):
 	states = models.CharField(max_length=30, choices=STATES)
 	lat = models.CharField(max_length=10)
 	log = models.CharField(max_length=10)
-	avatar = models.ImageField(upload_to='/avatar', blank=True)
+	avatar = models.ImageField(upload_to='avatar/', blank=True)
 	createdDate = models.DateTimeField(auto_now_add=True, blank=True)
 	#user = models.ForeignKey(User)
 		

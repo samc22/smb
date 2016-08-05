@@ -1,19 +1,30 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}List Municipalities{% endblock title %}
 
 {% block content %}
+<div class="container">
+<h1>List Municipalities</h1>
 {% for municipality in municipalities %}
 <div class="container">
 <ul class="collection"> 
     <li class="collection-item avatar">
-      <img src="https://recifeguide.files.wordpress.com/2008/12/recife-antigo-aerial-view.jpg" alt="" class="circle">
+      {% if municipality.avatar %}
+      		<img src="{{ municipality.avatar.url }}" alt="{{ municipality.name }}" class="circle" />
+      {% else %}
+             <img src="{% static 'image/samba.png' %}" alt="SAMBA"  class="circle" />
+     {% endif %}
      <a href="../detail/{{municipality.id}}"> <span class="title">{{ municipality.name }}</span></a>
       <p>{{ municipality.description }}
       </p>
-      <a href="../delete/{{municipality.id}}" class="secondary-content"><i class="material-icons">delete</i></a>
+
     </li>
+   <a href="../delete/{{municipality.id}}" class="secondary-content"><i class="material-icons">delete</i></a>
+   <a href="../edit/{{municipality.id}}" class="secondary-content"><i class="material-icons">edit</i></a>
    
+
   </ul>
 </div>
 {% endfor %}
+</div>
 {% endblock content %}

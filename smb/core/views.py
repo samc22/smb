@@ -16,7 +16,7 @@ def home(request):
 
 def addMunicipality(request):
 	if request.method == 'POST':
-		form = addMunicipalityForm(request.POST)
+		form = addMunicipalityForm(request.POST or None, request.FILES or None)
 		if form.is_valid():
 			print(form)
 			form.save()
@@ -31,12 +31,13 @@ def addMunicipality(request):
 
 def editMunicipality(request, pk):
 	instance = get_object_or_404(Municipality, pk=pk)
-	form = editMunicipalityForm(request.POST or None, instance=instance)
-	print(form)
+	form = editMunicipalityForm(request.POST or None, request.FILES or None, instance=instance)
+	#print(form)
+	print(instance.avatar)
 	if instance:
 		if form.is_valid():
 			print(form)
-			form.save(commit=False)
+			form.save()
 			return redirect('/municipality')
 	else:
 		form = addMunicipalityForm()
