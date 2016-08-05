@@ -4,9 +4,11 @@ from .forms import addMunicipalityForm, editMunicipalityForm
 # Create your views here.
 
 def home(request):
-
+	"""
+	
+	"""
 	context = {
-		'municipalities': listMunicipality()
+		'municipalities': Municipality.objects.all().order_by('-createdDate')
 	}
 
 	return render(request, 'core/municipality.html', context)
@@ -53,13 +55,19 @@ def detailMunicipality(request, pk):
 	}
 	return render(request, 'core/detailMunicipality.html', context)	
 
-def deleteMunicipality(request):
+def deleteMunicipality(request, pk):
+	
+	instance = get_object_or_404(Municipality, pk=pk)
+	instance.delete()
+	return redirect('/municipality/list')
 
-	pass
-
-
-def listMunicipality():
+def listMunicipality(request):
 
 	municipalities = Municipality.objects.all().order_by('-createdDate')
 
-	return municipalities
+	context = {
+
+		'municipalities': municipalities
+	}
+
+	return render(request, 'core/listMunicipality.html', context)

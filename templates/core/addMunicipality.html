@@ -4,11 +4,50 @@
 
 {% block content %}
 <div class="container">
+<h1>New Muncipality</h1>
+<br>
 <form method="POST">{% csrf_token %}
 
-{{ form.as_p}}
+{{ form.name.label }}
+{{ form.name.errors }}
+{{ form.name }}
+<br>
+<br>
+<br>
+{{ form.description.label }}
+{{ form.description.errors }}
+{{ form.description }}
+<br>
+<br>
+<br>
+{{ form.states.label }}
+{{ form.states.errors }}
+{{ form.states}}
+<br>
+<br>
+<br>
+{{form.lat.label}}
+{{form.lat.errors}}
+{{form.lat}}
+<br>
+<br>
+<br>
+{{form.log.label}}
+{{form.log.errors}}
+{{form.log}}
+<br>
+<br>
+<br>
+{{form.avatar.label}}
+{{form.avatar.errors}}
+{{form.avatar}}
+<br>
+<br>
+<br>
 <input type="submit" value="Adicionar"></input>
 </form>
+
 </div>
+
 
 {% endblock content%}

@@ -63,4 +63,3 @@ class editMunicipalityForm(forms.ModelForm):
 		model = Municipality
 		fields = ['name', 'description', 'states', 'lat', 'log', 'avatar']
 	
-	

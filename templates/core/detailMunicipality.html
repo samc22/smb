@@ -1,0 +1,16 @@
+
+{% extends "base.html" %}
+{% block title %}Editando Municipios{% endblock title %}
+
+{% block content %}
+<div class="container">
+{{municipality.name}}
+{{municipality.description}}
+{{municipality.states}}
+{{municipality.lat}}
+{{municipality.log}}
+{{municipality.avatar}}
+{{municipality.createdDate}}
+</div>
+
+{% endblock content%}
